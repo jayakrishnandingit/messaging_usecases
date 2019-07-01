@@ -1,3 +1,6 @@
 [submodule "messaging_application_1"]
 	path = messaging_application_1
 	url = git@github.com:jayakrishnandingit/messaging_application_1.git
+[submodule "messaging_emails"]
+	path = messaging_emails
+	url = git@github.com:jayakrishnandingit/messaging_emails.git
