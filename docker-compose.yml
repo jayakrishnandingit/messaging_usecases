@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+    mapp_mq:
+        container_name: mapp_mq
+        image: "rabbitmq:3-management"
+        ports:
+            - "5673:5672"
+        expose:
+            - "5673"
+        env_file: variables.env
+
+    mapp_emails:
+        container_name: mapp_emails
+        build: ./messaging_emails
+        volumes:
+            - ./messaging_emails:/code
+        links:
+            - mapp_mq
+        env_file: variables.env
+
+    mapp_1:
+        container_name: mapp_1
+        build: ./messaging_application_1
+        volumes:
+            - ./messaging_application_1:/code
+        links:
+            - mapp_mq
+            - mapp_emails
+        env_file: variables.env
+
