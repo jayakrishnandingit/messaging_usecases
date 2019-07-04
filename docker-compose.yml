@@ -6,8 +6,10 @@ services:
         image: "rabbitmq:3-management"
         ports:
             - "5673:5672"
+            - "15672:15672"
         expose:
             - "5673"
+            - "15672"
         env_file: variables.env
 
     mapp_emails:
